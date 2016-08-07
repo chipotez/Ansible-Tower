@@ -1,5 +1,6 @@
-- name: servidor vm
+- name: Hello World Sample
   hosts: all
   tasks:
-    - name: Reiniciar Server
-      command: /usr/sbin/reboot
+    - name: Hello Message
+      debug:
+      msg: "Hello World!"
