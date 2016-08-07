@@ -1,0 +1,8 @@
+- name: reiniciar servidor
+  hosts: reboot
+  tasks:
+    - name: Reiniciar Server
+      command: /usr/sbin/reboot
+    - name: Validando
+      debug:
+       msg: "el servidor se reinicio correctamente!"
