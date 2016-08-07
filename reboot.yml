@@ -1,8 +1,5 @@
 - name: reiniciar servidor
-  hosts: reboot
+  hosts: reboot_mapm
   tasks:
     - name: Reiniciar Server
       command: /usr/sbin/reboot
-    - name: Validando
-      debug:
-       msg: "el servidor se reinicio correctamente!"
