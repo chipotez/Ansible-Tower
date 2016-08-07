@@ -1,5 +1,5 @@
 - name: reiniciar servidor
-  hosts: reboot_mapm
+  hosts: all
   tasks:
     - name: Reiniciar Server
       command: /usr/sbin/reboot
