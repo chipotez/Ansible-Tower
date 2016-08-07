@@ -1,5 +1,5 @@
 - name: servidor vm
-  hosts: all
+  hosts: reboot
   tasks:
     - name: Reiniciar Server
       command: /usr/sbin/reboot
