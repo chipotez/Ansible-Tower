@@ -1,4 +1,4 @@
-- name: reiniciar servidor
+- name: servidor vm
   hosts: all
   tasks:
     - name: Reiniciar Server
