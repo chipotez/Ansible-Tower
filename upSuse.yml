@@ -11,7 +11,7 @@
       zypper: name=* state=latest type=patch
     - name: "Intalando Apache"
       zypper: name=apache2 state=present disable_recommends=no
+      service: name=apache2 state=restarted
     - name: "Servicio Web"
-      command: systemctl start apache2.service
       command: systemctl enable apache2.service
       command: wget https://www.banregio.com -O /srv/www/htdocs/index.html
