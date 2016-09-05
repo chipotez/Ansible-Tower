@@ -1,18 +1,19 @@
-- name: "Demo de Automatizacion Ansible Red Hat"
+- name: "Demo de Automatización Ansible Red Hat"
   hosts: all
   remote_user: root
   tasks:
-    - name: Prueba de Automatizacion para Banregio Suse Update
+    - name: "Inicio de Prueba"
       debug:
-       msg: "Automatización de procesos desde Ansible a SUSE"
+       msg: "Automatización de Procesos desde Ansible a SUSE"
     - name: "Asignando nombre al host"
       hostname: name=banregio.demo.com
     - name: "Actualizando a última version Sistema Operativo"
       zypper: name=* state=latest type=patch
-    - name: "Instalando Apache"
+    - name: "Instalando Servicios WEB"
       zypper: name=apache2 state=present disable_recommends=no
-    - name: "Iniciando Apache"
+    - name: "Iniciando Servicios WEB"
       service: name=apache2 state=restarted
-    - name: "Servicio Web"
+    - name: "Servicio WEB DISPONIBLE"
       command: systemctl enable apache2.service
+    - name: "Generando Página Principal"
       command: wget https://www.banregio.com -O /srv/www/htdocs/index.html
