@@ -6,7 +6,7 @@
       debug:
        msg: "Automatización de Procesos desde Ansible a SUSE"
     - name: "Asignando nombre al host"
-      hostname: name=banregio.demo.com
+      command: hostnamectl set-hostname banregio.demo.com
     - name: "Actualizando a última version Sistema Operativo"
       zypper: name=* state=latest type=patch
     - name: "Instalando Servicios WEB"
