@@ -9,8 +9,9 @@
       hostname: name=banregio.demo.com
     - name: "Actualizando a última version Sistema Operativo"
       zypper: name=* state=latest type=patch
-    - name: "Intalando Apache"
+    - name: "Instalando Apache"
       zypper: name=apache2 state=present disable_recommends=no
+    - name: "Iniciando Apache"
       service: name=apache2 state=restarted
     - name: "Servicio Web"
       command: systemctl enable apache2.service
