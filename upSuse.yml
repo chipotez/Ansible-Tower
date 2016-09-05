@@ -1,15 +1,17 @@
-
 - name: "Demo de Automatizacion Ansible Red Hat"
-  hosts: 192.168.122.13
+  hosts: all
+  remote_user: root
   tasks:
     - name: Prueba de Automatizacion para Banregio Suse Update
       debug:
        msg: "Automatización de procesos desde Ansible a SUSE"
-    - hostname: name=banregio.demo.com
+    - name: "Asignando nombre al host"
+      hostname: name=banregio.demo.com
     - name: "Actualizando a última version Sistema Operativo"
       zypper: name=* state=latest type=patch
     - name: "Intalando Apache"
       zypper: name=apache2 state=present disable_recommends=no
-    - name: install the nginx rpm from a remote repo
-      zypper: name=http://nginx.org/packages/sles/12/x86_64/RPMS/nginx-1.8.0-1.sles12.ngx.x86_64.rpm state=present
-    - command: 
+    - name: "Servicio Web"
+      command: systemctl start apache2.service
+      command: systemctl enable apache2.service
+      command: wget https://www.banregio.com -O /srv/www/htdocs/index.html
